@@ -9,3 +9,7 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ["customer", "room", "check_in", "check_out"]
+        widgets = {
+            "check_in": forms.DateInput(attrs={"type": "date", "placeholder": "YYYY-MM-DD"}),
+            "check_out": forms.DateInput(attrs={"type": "date", "placeholder": "YYYY-MM-DD"}),
+        }
