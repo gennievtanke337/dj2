@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Rooms</title>
-</head>
-<body>
-    <h1>Список кімнат</h1>
-    <ul>
+<h1>Список кімнат</h1>
+<ul>
     {% for room in rooms %}
-        <li>{{ room.name }} — {{ room.capacity }} місць — {{ room.price_per_night }} грн/ніч</li>
+        <li>{{ room.name }} — {{ room.capacity }} місць — {{ room.price_per_night }} грн</li>
     {% endfor %}
-    </ul>
-</body>
-</html>
+</ul>
+<p><a href="{% url 'create_booking' %}">Забронювати</a></p>

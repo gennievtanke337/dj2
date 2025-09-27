@@ -1,0 +1,7 @@
+<h1>Список бронювань</h1>
+<ul>
+    {% for booking in bookings %}
+        <li>{{ booking.customer }} забронював {{ booking.room }} з {{ booking.check_in }} по {{ booking.check_out }}</li>
+    {% endfor %}
+</ul>
+<p><a href="{% url 'create_booking' %}">Створити бронювання</a></p>
