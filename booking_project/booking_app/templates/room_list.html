@@ -1,7 +1,15 @@
-<h1>Список кімнат</h1>
-<ul>
-    {% for room in rooms %}
-        <li>{{ room.name }} — {{ room.capacity }} місць — {{ room.price_per_night }} грн</li>
-    {% endfor %}
+{% extends "base.html" %}
+
+{% block title %}Список кімнат{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Список кімнат</h1>
+<ul class="list-group">
+  {% for room in rooms %}
+    <li class="list-group-item">
+      {{ room.name }} — {{ room.capacity }} місць — {{ room.price_per_night }} грн
+    </li>
+  {% endfor %}
 </ul>
-<p><a href="{% url 'create_booking' %}">Забронювати</a></p>
+<a class="btn btn-primary mt-3" href="{% url 'create_booking' %}">Забронювати кімнату</a>
+{% endblock %}

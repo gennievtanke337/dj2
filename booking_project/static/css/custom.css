@@ -1,0 +1,29 @@
+form button.btn-success {
+    background-color: #ff6600; 
+    border-color: #ff6600;
+}
+
+form a.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border-color: #6c757d;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    width: auto;
+}
+
+form a.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.navbar .btn-light {
+    background-color: #ff7f07;
+    color: white;
+    border-color: #ff6600;
+}
+
+.navbar .btn-light:hover {
+    background-color: #e65c00;
+    border-color: #e65c00;
+}
