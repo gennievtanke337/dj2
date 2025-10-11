@@ -19,11 +19,15 @@ from django.urls import path
 from booking_app import views
 from django.shortcuts import redirect
 
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("rooms/", views.room_list, name="room_list"),
     path("bookings/", views.booking_list, name="booking_list"),
     path("bookings/new/", views.create_booking, name="create_booking"),
-    path("", views.room_list),  
+    path("register/", views.register_view, name="register"),
+    path("login/", views.login_view, name="login"),
+    path("logout/", views.logout_view, name="logout"),
+    path("", views.room_list, name="home"),
+    path("bookings/cancel/<int:booking_id>/", views.cancel_booking, name="cancel_booking"),
+
 ]

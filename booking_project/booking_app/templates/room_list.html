@@ -3,13 +3,27 @@
 {% block title %}Список кімнат{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Список кімнат</h1>
-<ul class="list-group">
-  {% for room in rooms %}
-    <li class="list-group-item">
-      {{ room.name }} — {{ room.capacity }} місць — {{ room.price_per_night }} грн
-    </li>
-  {% endfor %}
-</ul>
-<a class="btn btn-primary mt-3" href="{% url 'create_booking' %}">Забронювати кімнату</a>
+<div class="container mt-4">
+    <h1 class="mb-4">Список кімнат</h1>
+    <ul class="list-group mb-4">
+      {% for room in rooms %}
+        <li class="list-group-item">
+          {{ room.name }} — {{ room.capacity }} місць — {{ room.price_per_night }} грн
+        </li>
+      {% endfor %}
+    </ul>
+    <a class="btn btn-primary mb-5" href="{% url 'create_booking' %}">Забронювати кімнату</a>
+
+    <h2 class="mt-4">Мої бронювання</h2>
+    <ul class="list-group">
+      {% for booking in user_bookings %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{ booking.room.name }} ({{ booking.check_in }} — {{ booking.check_out }})
+          <a href="{% url 'cancel_booking' booking.id %}" class="btn btn-danger btn-sm">Відмінити</a>
+        </li>
+      {% empty %}
+        <li class="list-group-item text-muted">У вас немає активних бронювань</li>
+      {% endfor %}
+    </ul>
+</div>
 {% endblock %}

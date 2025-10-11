@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Реєстрація{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 500px;">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="mb-4 text-center text-success">Реєстрація</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success w-100">Зареєструватися</button>
+      </form>
+      <div class="text-center mt-3">
+        <p>Вже маєш акаунт?
+          <a href="{% url 'login' %}" class="text-decoration-none">Увійди</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
